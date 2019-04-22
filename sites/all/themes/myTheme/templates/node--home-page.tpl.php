@@ -84,7 +84,7 @@
 
 <div class="row">
     <div class="container">
-        <h2>Upcoming event</h2>
+        <h2 style="color: red; font-size: 26px; padding-left: 30px;">Upcoming event</h2>
         <?php print views_embed_view('upcoming_event', 'block'); ?>
     </div>
 </div>

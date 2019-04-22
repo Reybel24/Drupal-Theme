@@ -93,6 +93,11 @@ $secondToLastURLsegment = $currentURLarray[$urlArrayCountMinusTwo];
 $thirdToLastURLsegment = $currentURLarray[$urlArrayCountMinusThree];
 ?>
 
+<?php if($title == 'About'){ ?>
+    <h1 class="main-title">About Drupal</h1>
+<?php } else { ?>
+    <p class="section-title">About Drupal</p>
+<?php } ?>
 <?php
 if($secondToLastURLsegment == 'event' ||
     $thirdToLastURLsegment == 'event' ||
@@ -106,7 +111,8 @@ if($secondToLastURLsegment == 'event' ||
 
 <?php print render($content['body']); ?>
 
-<?php print $title; ?>
+<h3 style="color: green; font-size: 30px; padding: 22px; background-color: yellow"><?php print $title; ?></h3>
+
 
 <div class="eventMedia">
     <?php
@@ -119,6 +125,7 @@ if($secondToLastURLsegment == 'event' ||
     ?>
 </div>
 
+<div style="padding: 22px; font-size: 19px; color: grey;">
 <?php print render($content['field_date']); ?>
 
 <?php print render($content['field_location']); ?>
@@ -126,6 +133,7 @@ if($secondToLastURLsegment == 'event' ||
 <?php print render($content['body']); ?>
 
 <?php print render($content['field_agenda']); ?>
+</div>
 
 <?php
 // add specific content based off of the page title...
@@ -142,7 +150,7 @@ if($node->title == 'Regional Event'){
 }
 ?>
 
-<div class="eventDate">
+<div class="eventDate" style="padding: 22px; font-size: 19px; color: grey;">
     <?php
     $eventDate = field_get_items('node', $node, 'field_date');
 
@@ -152,7 +160,7 @@ if($node->title == 'Regional Event'){
     $month1 = date_format($date1, 'F');
 
     // get second date data...
-    $date2 = date_create($eventDate[0]['value2']);
+    $date2 = date_create($eventDate[0]['value']);
     $day2 = date_format($date2, 'jS');
     $month2 = date_format($date2, 'F');
 
@@ -170,7 +178,7 @@ if($node->title == 'Regional Event'){
     }
     ?>
 </div>
-<div class="eventTime">
+<div class="eventTime" style="padding: 18px; font-size: 15px; color: orange;">
     <?php
     $time1 = date_format($date1, 'g:i A');
     print $time1;
